@@ -17,7 +17,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v3
       name: Build & push Docker image
       with:
-        image: repository/docker/tmooredba/githubactions
+        image: repository/docker/tmooredba/flooreus
         tag: latest
         registry: docker.io
         dockerfile: Dockerfile
