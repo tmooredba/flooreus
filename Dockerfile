@@ -1,9 +1,11 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt update
-RUN apt install -y apache2
-RUN apt install -y  apache2-utils
-RUN apt clean
+RUN apt update -y && \
+    apt install -y apache2 && \
+    apt install -y  apache2-utils && \
+    apt clean
 ADD web /var/www/html
-EXPOSE 8010
+WORKDIR /root
+ENV HOME /root
+EXPOSE 80
 CMD ["apache2ctl", "-D", "FOREGROUND"]
